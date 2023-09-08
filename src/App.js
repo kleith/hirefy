@@ -1,23 +1,92 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  faClipboard,
+  faHouse,
+  faPeopleGroup,
+  faQuestion,
+  faShapes,
+} from "@fortawesome/free-solid-svg-icons";
+
+import "./App.css";
+import { Sidebar } from "./components/Sidebar";
+import logo from "./logo.avif";
 
 function App() {
+  const menu = [
+    {
+      name: "Home",
+      icon: faHouse,
+    },
+    { name: "How it works", icon: faQuestion },
+    {
+      name: "Marketplace",
+      icon: faPeopleGroup,
+    },
+    {
+      name: "For Talents",
+      icon: faClipboard,
+    },
+    {
+      name: "Categories",
+      icon: faShapes,
+    },
+    {
+      name: "Lorem ipsum",
+      children: [
+        {
+          name: "Lorem ipsum",
+        },
+        {
+          name: "Lorem ipsum",
+        },
+        {
+          name: "Lorem ipsum",
+        },
+        {
+          name: "Lorem ipsum",
+        },
+      ],
+    },
+    {
+      name: "Lorem ipsum 1",
+      children: [
+        {
+          name: "Lorem ipsum",
+        },
+        {
+          name: "Lorem ipsum",
+          children: [
+            {
+              name: "Lorem ipsum",
+            },
+            {
+              name: "Lorem ipsum",
+            },
+          ],
+        },
+      ],
+    },
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="Sidebar">
+        <header>
+          <img src={logo} alt="logo" />
+          Hirefy
+        </header>
+        <aside>
+          <Sidebar menu={menu} />
+        </aside>
+        <footer>
+          <ul>
+            <li>Terms</li>
+            <li>Privacy</li>
+            <li>Security</li>
+            <li>Version</li>
+          </ul>
+          <p>&copy; 2023 Hirefy, LLC.</p>
+        </footer>
+      </div>
     </div>
   );
 }
